@@ -25,7 +25,14 @@ O exemplo dado a cima serve da mesma maneira para a disciplina, porém irei forn
     "descricao": "Inteligência Artifícial"
 }
 
-Para você efetuar a atualização deste item, basta informar na url o id correspondente ao item, e descrever a mudança que deseja fazer ao utilizar o metodo PUT, um exemplo de atualização:
+O resultado será
+{
+    "id": 1
+    "nome": "IA",
+    "descricao": "Inteligência Artifícial"
+}
+
+Para você efetuar a atualização deste item, basta informar na url o id correspondente ao item, e descrever a mudança que deseja fazer ao utilizar o método PUT, um exemplo de atualização:
 {
     "nome": "IA",
     "descricao": "Inteligência Artifícial atua na reprodução de padrões de comportamento semelhantes ao humano por dispositivos e programas computacionais"
@@ -39,9 +46,12 @@ Para você criar uma tarefa, precisa inserir dados compativeis com os dados que 
   "data_entrega": "2023-09-26",
   "concluida": false,
   "alunos_tarefas": 1,
-  "disciplinas": [1, 1]
+  "disciplinas": [3, 1]
 }
 
 O padrão para as inserções dos 3 itens(alunos, disciplinas e tarefas) é o mesmo, então para você deletar cada qualquer uma delas, basta colocar o id do item desejado na URL e utilizar o método DELETE.
 
-Para atualizar alem de colocar ao id correspondente na URL, precisa colocar o conteudo do item com a modificação que se deseja efetuar e utilizar o método PUT
+Para atualizar alem de colocar ao id correspondente na URL, precisa colocar o conteudo do item com a modificação que se deseja efetuar e utilizar o método PUT.
+
+Para obter informações de um item em especifico na URL coloque o id do item e utilize o método GET.
+
