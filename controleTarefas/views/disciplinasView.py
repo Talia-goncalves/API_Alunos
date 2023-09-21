@@ -12,7 +12,7 @@ class DisciplinasView(APIView):
     # Método GET para buscar disciplinas
     def get(self, request, pk=None):
         # Verifica se um ID foi fornecido na URL
-        if id is not None:
+        if pk is not None:
             try:
                 # Tenta encontrar uma disciplina com o ID fornecido
                 disciplinas = DisciplinasEntidade.objects.get(pk=pk)

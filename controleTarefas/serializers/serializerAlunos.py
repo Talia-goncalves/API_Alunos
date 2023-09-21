@@ -3,5 +3,5 @@ from controleTarefas.models.alunos import AlunosEntidade
 
 class AlunosSerializer(serializers.ModelSerializer):
     class Meta: 
-        modelo = AlunosEntidade
+        model = AlunosEntidade
         fields = '__all__'

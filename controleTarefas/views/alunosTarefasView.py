@@ -13,6 +13,6 @@ class AlunoTarefasView(APIView):
         except AlunosEntidade.DoesNotExist:
             return Response({'details': 'Tarefa não existe'}, status=status.HTTP_400_BAD_REQUEST)
         #Retorna todas tarefa com esse ID associado
-        tarefas = TarefasEntidade.objects. filter (aluno_delegado=alunos)
+        tarefas = TarefasEntidade.objects. filter(alunos_tarefas=alunos)
         serializer = SerializerTarefas (tarefas, many=True)
         return Response(serializer .data)

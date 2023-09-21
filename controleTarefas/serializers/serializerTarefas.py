@@ -3,5 +3,5 @@ from controleTarefas.models.tarefas import TarefasEntidade
 
 class SerializerTarefas(serializers.ModelSerializer):
     class Meta: 
-        modelo = TarefasEntidade
+        model = TarefasEntidade
         fields = '__all__'
