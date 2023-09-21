@@ -1,6 +1,6 @@
 from django.db import models
-from ..models.disciplinas import DisciplinasEntidade
-from ..models.alunos import AlunosEntidade
+from controleTarefas.models.disciplinas import DisciplinasEntidade
+from controleTarefas.models.alunos import AlunosEntidade
 
 
 

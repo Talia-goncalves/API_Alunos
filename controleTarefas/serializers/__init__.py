@@ -1,0 +1,3 @@
+from controleTarefas.serializers.serializerAlunos import AlunosSerializer
+from controleTarefas.serializers.serializerDisciplinas import DisciplinaSerializer
+from controleTarefas.serializers.serializerTarefas import SerializerTarefas

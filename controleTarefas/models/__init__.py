@@ -1,3 +1,3 @@
-from .alunos import AlunosEntidade
-from .disciplinas import DisciplinasEntidade
-from .tarefas import TarefasEntidade
+from controleTarefas.models.alunos import AlunosEntidade
+from controleTarefas.models.disciplinas import DisciplinasEntidade
+from controleTarefas.models.tarefas import TarefasEntidade

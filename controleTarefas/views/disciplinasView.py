@@ -4,18 +4,18 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Importando o modelo DisciplinasEntidade e o serializador DisciplinaSerializer
-from ..models.disciplinas import DisciplinasEntidade
-from ..serializers.serializerDisciplinas import DisciplinaSerializer
+from controleTarefas.models.disciplinas import DisciplinasEntidade
+from controleTarefas.serializers.serializerDisciplinas import DisciplinaSerializer
 
 # Criando uma classe chamada DisciplinasView que herda da classe APIView do Django REST framework
 class DisciplinasView(APIView):
     # Método GET para buscar disciplinas
-    def get(self, request, id=None):
+    def get(self, request, pk=None):
         # Verifica se um ID foi fornecido na URL
         if id is not None:
             try:
                 # Tenta encontrar uma disciplina com o ID fornecido
-                disciplinas = DisciplinasEntidade.objects.get(pk=id)
+                disciplinas = DisciplinasEntidade.objects.get(pk=pk)
                 # Serializa a disciplina encontrada usando DisciplinaSerializer
                 serializer = DisciplinaSerializer(disciplinas, many=False)
                 # Retorna os dados serializados como resposta
@@ -44,10 +44,10 @@ class DisciplinasView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método PUT para atualizar uma disciplina existente
-    def put(self, request, id, format=None):
+    def put(self, request, pk, format=None):
         try:
             # Tenta encontrar a disciplina com o ID fornecido
-            disciplinas = DisciplinasEntidade.objects.get(pk=id)
+            disciplinas = DisciplinasEntidade.objects.get(pk=pk)
         except DisciplinasEntidade.DoesNotExist:
             # Retorna uma resposta de erro se a disciplina não existe
             return Response({'details': 'Disciplina não existe'}, status=status.HTTP_400_BAD_REQUEST)
@@ -63,10 +63,10 @@ class DisciplinasView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método DELETE para excluir uma disciplina
-    def delete(self, request, id, format=None):
+    def delete(self, request, pk, format=None):
         # Tenta encontrar a disciplina com o ID fornecido
         try:
-            disciplinas = DisciplinasEntidade.objects.get(pk=id)
+            disciplinas = DisciplinasEntidade.objects.get(pk=pk)
         except DisciplinasEntidade.DoesNotExist:
             # Retorna uma resposta de erro se a disciplina não existe
             return Response({'details': 'Disciplina não existe'}, status=status.HTTP_400_BAD_REQUEST)

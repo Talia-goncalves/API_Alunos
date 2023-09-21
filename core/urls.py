@@ -8,10 +8,10 @@ from controleTarefas.views.alunosTarefasView import AlunoTarefasView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/alunos/', AlunosView.as_view()),
-    path('api/alunos/<int:id>/', AlunosView.as_view()),
+    path('api/alunos/<int:pk>/', AlunosView.as_view()),
     path('api/disciplinas/', DisciplinasView.as_view()),
-    path('api/disciplinas/<int:id›/', DisciplinasView.as_view()),
+    path('api/disciplinas/<int:pk>/', DisciplinasView.as_view()),
     path('api/tarefas/', TarefasView.as_view()),
-    path('api/tarefas/<int:id/>', TarefasView.as_view()),
-    path('api/alunos/‹int:id>/tarefas/', AlunoTarefasView.as_view()),
+    path('api/tarefas/<int:pk>/', TarefasView.as_view()),
+    path('api/alunos/<int:pk>/tarefas/', AlunoTarefasView.as_view()),
 ]

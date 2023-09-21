@@ -4,18 +4,18 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Importando o modelo TarefasEntidade e o serializador SerializerTarefas
-from ..models.tarefas import TarefasEntidade
-from ..serializers.serializerTarefas import SerializerTarefas
+from controleTarefas.models.tarefas import TarefasEntidade
+from controleTarefas.serializers.serializerTarefas import SerializerTarefas
 
 # Criando uma classe chamada TarefasView que herda da classe APIView do Django REST framework
 class TarefasView(APIView):
     # Método GET para buscar tarefas
-    def get(self, request, id=None):
+    def get(self, request, pk=None):
         # Verifica se um ID foi fornecido na URL
         if id is not None:
             try:
                 # Tenta encontrar uma tarefa com o ID fornecido
-                tarefas = TarefasEntidade.objects.get(pk=id)
+                tarefas = TarefasEntidade.objects.get(pk=pk)
                 # Serializa a tarefa encontrada usando SerializerTarefas
                 serializer = SerializerTarefas(tarefas, many=False)
                 # Retorna os dados serializados como resposta
@@ -44,10 +44,10 @@ class TarefasView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método PUT para atualizar uma tarefa existente
-    def put(self, request, id, format=None):
+    def put(self, request, pk, format=None):
         try:
             # Tenta encontrar a tarefa com o ID fornecido
-            tarefas = TarefasEntidade.objects.get(pk=id)
+            tarefas = TarefasEntidade.objects.get(pk=pk)
         except TarefasEntidade.DoesNotExist:
             # Retorna uma resposta de erro se a tarefa não existe
             return Response({'details': 'Tarefa não existe'}, status=status.HTTP_400_BAD_REQUEST)
@@ -63,10 +63,10 @@ class TarefasView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método DELETE para excluir uma tarefa
-    def delete(self, request, id, format=None):
+    def delete(self, request, pk, format=None):
         # Tenta encontrar a tarefa com o ID fornecido
         try:
-            tarefas = TarefasEntidade.objects.get(pk=id)
+            tarefas = TarefasEntidade.objects.get(pk=pk)
         except TarefasEntidade.DoesNotExist:
             # Retorna uma resposta de erro se a tarefa não existe
             return Response({'details': 'Tarefa não existe'}, status=status.HTTP_400_BAD_REQUEST)

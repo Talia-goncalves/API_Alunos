@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models.disciplinas import DisciplinasEntidade
+from controleTarefas.models.disciplinas import DisciplinasEntidade
 
 class DisciplinaSerializer(serializers.ModelSerializer):
     class Meta: 

@@ -4,18 +4,18 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Importando o modelo de AlunosEntidade e o serializador AlunosSerializer
-from ..models.alunos import AlunosEntidade
-from ..serializers.serializerAlunos import AlunosSerializer
+from controleTarefas.models.alunos import AlunosEntidade
+from controleTarefas.serializers.serializerAlunos import AlunosSerializer
 
 # Criando uma classe chamada AlunosView que herda da classe APIView do Django REST framework
 class AlunosView(APIView):
     # Método GET para buscar alunos
-    def get(self, request, id=None):
+    def get(self, request, pk=None):
         # Verifica se um ID foi fornecido na URL
-        if id is not None:
+        if pk is not None:
             try:
                 # Tenta encontrar um aluno com o ID fornecido
-                alunos = AlunosEntidade.objects.get(pk=id)
+                alunos = AlunosEntidade.objects.get(pk=pk)
                 # Serializa o aluno encontrado usando AlunosSerializer
                 serializer = AlunosSerializer(alunos, many=False)
                 # Retorna os dados serializados como resposta
@@ -44,10 +44,10 @@ class AlunosView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método PUT para atualizar um aluno existente
-    def put(self, request, id, format=None):
+    def put(self, request, pk, format=None):
         try:
             # Tenta encontrar o aluno com o ID fornecido
-            alunos = AlunosEntidade.objects.get(pk=id)
+            alunos = AlunosEntidade.objects.get(pk=pk)
         except AlunosEntidade.DoesNotExist:
             # Retorna uma resposta de erro se o aluno não existe
             return Response({'details': 'Aluno não existe'}, status=status.HTTP_400_BAD_REQUEST)
@@ -63,10 +63,10 @@ class AlunosView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # Método DELETE para excluir um aluno
-    def delete(self, request, id, format=None):
+    def delete(self, request, pk, format=None):
         # Tenta encontrar o aluno com o ID fornecido
         try:
-            alunos = AlunosEntidade.objects.get(pk=id)
+            alunos = AlunosEntidade.objects.get(pk=pk)
         except AlunosEntidade.DoesNotExist:
             # Retorna uma resposta de erro se o aluno não existe
             return Response({'details': 'Aluno não existe'}, status=status.HTTP_400_BAD_REQUEST)
