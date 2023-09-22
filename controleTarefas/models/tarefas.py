@@ -2,8 +2,6 @@ from django.db import models
 from controleTarefas.models.disciplinas import DisciplinasEntidade
 from controleTarefas.models.alunos import AlunosEntidade
 
-
-
 class TarefasEntidade(models.Model):
     titulo = models.CharField(max_length=255)
     descricao = models.TextField()

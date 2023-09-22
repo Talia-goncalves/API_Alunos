@@ -63,4 +63,3 @@ O padrão para as inserções dos 3 itens(`alunos`, `disciplinas` e `tarefas`) �
 Para atualizar alem de colocar ao id correspondente na URL, precisa colocar o conteudo do item com a modificação que se deseja efetuar e utilizar o método PUT.
 
 Para obter informações de um item em especifico na URL coloque o id do item e utilize o método GET.
-
