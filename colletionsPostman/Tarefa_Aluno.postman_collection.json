@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "f20e24b1-82cc-48f2-a80b-daa5e30cc3bc",
+		"name": "Tarefa_Aluno",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29465138"
+	},
+	"item": [
+		{
+			"name": "Acessar Tarefas de Um aluno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/alunos/8/tarefas/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"alunos",
+						"8",
+						"tarefas",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
